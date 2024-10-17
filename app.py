@@ -5,6 +5,9 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 import numpy as np
 
+# Deshabilitar el uso de la GPU y forzar el uso de la CPU
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+
 # Configurar Flask
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploaded_images'
