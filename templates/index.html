@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat vs Dog Classifier</title>
+</head>
+<body>
+    <h1>Upload an image to check if it's a Cat or a Dog!</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Upload and Predict</button>
+    </form>
+
+    {% if prediction %}
+    <h2>Prediction: {{ prediction }}</h2>
+    <img src="{{ url_for('static', filename='uploaded_images/' + image_path.split('/')[-1]) }}" alt="Uploaded Image" style="max-width: 300px;">
+    {% endif %}
+</body>
+</html>
